@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV | Isaac Alberto Renderos Custodio</title>
+  <meta name="description" content="Currículum web de Isaac Alberto Renderos Custodio: Ingeniería en Sistemas, análisis de datos, soporte técnico y desarrollo de software." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c10; /* dark base */
+      --panel:#111318;
+      --card:#141821;
+      --text:#e7ecf2;
+      --muted:#b7c2cc;
+      --accent:#6dd3fb;
+      --chip:#1e2530;
+      --line:#233044;
+      --print-text:#111318;
+    }
+
+    .profile-pic {
+        width:160px;
+        height:160px;
+        border-radius:50%;
+        object-fit:cover;
+        border:4px solid var(--accent);
+        margin:0 auto;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        }
+
+        .gallery img {
+        width: 100%;
+        height: auto;        /* Mantiene la proporción */
+        border-radius: 12px; /* Bordes suaves */
+        object-fit: contain; /* Evita que se deforme */
+        }
+
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fb;
+        --panel:#ffffff;
+        --card:#ffffff;
+        --text:#11202c;
+        --muted:#4b6477;
+        --accent:#0ea5e9;
+        --chip:#eef6ff;
+        --line:#d6e3f1;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:linear-gradient(160deg, var(--bg), #0d1220 60%);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .page{max-width:1100px;margin:32px auto;padding:24px}
+    .header{
+      display:grid; gap:20px; grid-template-columns:1.2fr 2fr; align-items:center; background:radial-gradient(1200px 500px at 10% -20%, rgba(109,211,251,.16), transparent 60%), var(--panel);
+      border:1px solid rgba(255,255,255,.06); border-radius:20px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .id{
+      display:flex; flex-direction:column; gap:14px; padding:18px; background:var(--card); border-radius:16px; border:1px solid rgba(255,255,255,.05);
+    }
+    .name{font-size:clamp(28px,4.5vw,42px); font-weight:800; letter-spacing:.4px; line-height:1.05}
+    .role{font-weight:600; color:var(--accent); letter-spacing:.6px; text-transform:uppercase; font-size:13px}
+    .meta{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{background:var(--chip); color:var(--muted); border:1px solid rgba(255,255,255,.06); padding:8px 12px; border-radius:999px; font-size:12px}
+
+    .contact{display:grid; gap:8px; align-content:start}
+    .contact a{display:flex; gap:10px; align-items:center; text-decoration:none; color:var(--text); padding:10px 12px; background:var(--card); border-radius:12px; border:1px solid rgba(255,255,255,.06)}
+    .contact a .hint{color:var(--muted); font-size:12px; margin-left:auto}
+    .contact svg{width:18px; height:18px; opacity:.9}
+
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px}
+    section{background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:22px}
+    h2{margin:0 0 12px; font-size:16px; letter-spacing:.6px; text-transform:uppercase; color:var(--muted)}
+    h3{margin:0; font-size:18px}
+    .muted{color:var(--muted)}
+    p{margin:8px 0 0; line-height:1.6}
+
+    .timeline{display:grid; gap:14px}
+    .item{padding:16px; background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px}
+    .item header{display:flex; gap:10px; justify-content:space-between; align-items:baseline}
+    .item .where{font-weight:700}
+    .item .when{color:var(--muted); font-size:13px}
+    .item ul{margin:10px 0 0 18px}
+    .item li{margin:6px 0}
+
+    .skills{display:flex; flex-wrap:wrap; gap:8px}
+    .skill{padding:8px 12px; border-radius:999px; background:var(--chip); border:1px solid rgba(255,255,255,.06); font-size:13px}
+
+    .columns{columns:2; column-gap:14px}
+
+    .footer{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:22px}
+    .btn{appearance:none; border:none; background:var(--accent); color:#001018; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer}
+    .ghost{background:transparent; color:var(--accent); border:1px solid var(--accent)}
+
+    .badge{display:inline-flex; align-items:center; gap:8px; background:var(--card); border:1px solid rgba(255,255,255,.06); padding:10px 12px; border-radius:12px; margin-top:8px}
+    .badge small{color:var(--muted)}
+
+    @media (max-width: 900px){
+      .header{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* Print: A4 friendly */
+    @page { size: A4; margin: 14mm }
+    @media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: var(--bg) !important; /* conserva tu fondo */
+    color: var(--text) !important;
+  }
+  .page {
+    margin: 0;
+    padding: 0;
+  }
+  .header, section {
+    box-shadow: none;
+  }
+  .footer {
+    display: none;
+  }
+  a[href^="http"]:after {
+    content:" (" attr(href) ")";
+    font-size:10px;
+    color:#666;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Encabezado -->
+    <div class="header">
+        <div style="text-align:center">
+            <img src="perfil.jpg" alt="Foto de Isaac Alberto Renderos Custodio" class="profile-pic">
+        </div>
+
+      <div class="id">
+        <div class="role">Currículum Vitae</div>
+        <div class="name">Isaac Alberto Renderos Custodio</div>
+        <div class="meta">
+          <span class="chip">Soyapango, San Salvador Este</span>
+          <span class="chip">20 años</span>
+          <span class="chip">Ingeniería en Sistemas (4to año)</span>
+        </div>
+        <p class="muted">Estudiante de Ingeniería en Sistemas con habilidades en análisis de datos, soporte técnico y desarrollo de software. Me adapto rápido a entornos dinámicos y disfruto resolver problemas con empatía y comunicación efectiva.</p>
+      </div>
+
+      <div class="contact">
+        <a href="tel:+50364371503" aria-label="Teléfono">
+          <!-- phone icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V21c0 .55-.45 1-1 1C10.07 22 2 13.93 2 3c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +503 6442-1277 <span class="hint">Llamar/Whatsapp</span>
+        </a>
+        <a href="mailto:custodiosaac074@gmail.com" aria-label="Correo">
+          <!-- mail icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          custodiosaac074@gmail.com <span class="hint">Enviar correo</span>
+        </a>
+        <a href="https://www.uees.edu.sv/" target="_blank" rel="noopener" aria-label="Universidad Evangélica de El Salvador">
+          <!-- link icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9 12a5 5 0 015-5h3v2h-3a3 3 0 000 6h3v2h-3a5 5 0 01-5-5zm7-1h2v2h-2v-2zm4.1-4h-3V5h3a5 5 0 110 10h-3v-2h3a3 3 0 000-6z"/></svg>
+          Universidad Evangélica de El Salvador <span class="hint">Sitio</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Experiencia -->
+      <section>
+        <h2>Experiencia Laboral</h2>
+        <div class="timeline">
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">Hotel Los Farallones</div>
+                <div class="muted">Auxiliar de Jefe y Auxiliar de Bases de Información</div>
+              </div>
+              <div class="when">La Libertad · Mar 2023 — Dic 2023</div>
+            </header>
+            <ul>
+              <li>Atención al cliente con enfoque en resolución de conflictos, comunicación efectiva y empatía.</li>
+              <li>Representante de atención al cliente, facilitando información y servicios personalizados.</li>
+              <li>Gestión de operaciones: coordinación de reservas, supervisión de inventarios y manejo de bases de datos.</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="item">
+            <header>
+              <div>
+                <div class="where">Colegio Liceo Francisco Lopez Ramos</div>
+                <div class="muted">Profesor de informatica y matematica.</div>
+              </div>
+              <div class="when">Soyapango · Ene 2025 - Oct 2025</div>
+            </header>
+            <ul>
+              <li>Profesor de informatica Desarrollo de conocimiento desde primera infancias hasta noveno grado.</li>
+              <li>Profesor de matematicas Desarrollo de conocimientos de tercer y cuarto grado de matematicas.</li>
+              <li>Ingeniero tecnico de la red institucional Cuido, mantenimiento y mejoría de la red local de la institución.</li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">PAN LIDO - RV INDUSTRIAS / LIDO MEJICANOS CD</div>
+                <div class="muted">Auxiliar de jefe de Informática.</div>
+              </div>
+              <div class="when">Mejicanos · Nov 2025 - Actualmente</div>
+            </header>
+            <ul>
+              <li>Soporte técnico: Diagnóstico y resolución de problemas en hardware y software.</li>
+              <li>Mantenimiento de equipos: Limpieza, actualización y reparación de computadoras, impresoras y otros dispositivos.</li>
+              <li>Redes y conectividad: Configuración de redes LAN/Wi-Fi, administración básica de routers y switches.</li>
+              <li>Administración de sistemas: Gestión de cuentas de usuario, permisos, backups y seguridad informática.</li>
+              <li>Gestión de software: Instalación, actualización y licenciamiento de programas corporativos.</li>
+              <li>Bases de datos básicas: Apoyo en manejo y mantenimiento de bases de datos simples.</li>
+              <li>Documentación técnica: Elaboración de manuales, guías y procedimientos internos.</li>
+              <li>Documentación técnica: Elaboración de manuales, guías y procedimientos internos. </li>
+
+            </ul>
+          </article>
+        
+      </section>
+
+      <!-- Educación -->
+      <section>
+        <h2>Educación</h2>
+        <div class="timeline">
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">Universidad Evangélica de El Salvador</div>
+                <div class="muted">Ingeniería en Sistemas Computacionales</div>
+              </div>
+              <div class="when">Cuarto año · En curso</div>
+            </header>
+            <p><strong>Proyectos destacados</strong>: Sistema de gestión para bibliotecas universitarias (−30% en tiempos de préstamo) y aplicación web para visualización de datos estadísticos para análisis institucional.</p>
+          </article>
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">Colegio Isabel Allende</div>
+                <div class="muted">Bachillerato con Diplomado en Computación</div>
+              </div>
+              <div class="when">Graduado · 2022</div>
+            </header>
+          </article>
+        </div>
+      </section>
+
+      <!-- Habilidades técnicas -->
+      <section>
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills">
+          <span class="skill">Inteligencia Artificial</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Desarrollo de Software</span>
+          <span class="skill">Redes</span>
+          <span class="skill">Java</span>
+          <span class="skill">SQL</span>
+          <span class="skill">PHP</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">.NET</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">Oracle</span>
+          <span class="skill">Power BI</span>
+        </div>
+      </section>
+
+      <!-- Aptitudes -->
+      <section>
+        <h2>Aptitudes Clave</h2>
+        <div class="skills">
+          <span class="skill">Pensamiento Crítico</span>
+          <span class="skill">Trabajo en Equipo</span>
+          <span class="skill">Escucha Activa</span>
+          <span class="skill">Empatía</span>
+          <span class="skill">Adaptabilidad</span>
+          <span class="skill">Asertividad</span>
+          <span class="skill">Priorización</span>
+          <span class="skill">Orientado a Resultados</span>
+          <span class="skill">Gestión del Tiempo</span>
+        </div>
+        <div class="badge">
+          <!-- chart icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2v18H3V3zm16 7h2v11h-2V10zM11 14h2v7h-2v-7zM7 8h2v13H7V8zm8-5h2v18h-2V3z"/></svg>
+          Analizar y visualizar datos con Microsoft Power BI <small>· DAX · Power Query</small>
+        </div>
+      </section>
+
+      <!-- Cursos y certificaciones -->
+      <section>
+        <h2>Cursos</h2>
+        <div class="timeline">
+        <article class="item">
+            <header>
+              <div>
+                <div class="where">Instituto de Ciberseguridad (España)</div>
+                <div class="muted">Protege tu Negocio: Ciberseguridad en el Teletrabajo</div>
+              </div>
+              <div class="when">Ene 2023 — Mar 2023</div>
+            </header>
+          </article>
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">Universidad Evangélica de El Salvador</div>
+                <div class="muted">Curso de Microsoft Power BI</div>
+              </div>
+              <div class="when">Oct 2024 — Nov 2024</div>
+            </header>
+            <p>Visualización y análisis de datos, transformación con Power Query y modelado con DAX para cálculos avanzados y optimización de informes.</p>
+          </article>
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">IBM</div>
+                <div class="muted">Cybersecurity Fundamentals</div>
+              </div>
+              <div class="when">Dic 2025 — Dic 2025</div>
+            </header>
+          </article>
+          <article class="item">
+            <header>
+              <div>
+                <div class="where">Platzi</div>
+                <div class="muted">Arquitectura Backend</div>
+                <div class="muted">Arquitectura de Software</div>
+                <div class="muted">Arquitecturas limpias para desarrollo de software</div>
+                <div class="muted">Fundamento de Arquitectura de Software</div>
+                <div class="muted">Arquitectura Backend</div>
+                <div class="muted">Arquitectura Backend</div>
+                <div class="muted">Arquitectura Backend</div>
+              </div>
+              <div class="when">Dic 2025 — Dic 2025</div>
+            </header>
+          </article>
+        </div>
+      </section>
+
+      <!-- Referencias -->
+      <section>
+        <h2>Referencias</h2>
+        <div class="columns">
+          <p><strong>Beatriz Custodio</strong> — Diseñadora<br><span class="muted">Tel: 7808-9721</span></p>
+          <p><strong>Gabriela Meléndez</strong> — Docente de inicial y parvularia<br><span class="muted">Tel: 7919-53117</span></p>
+        </div>
+      </section>
+
+      <!-- Datos personales (opcional) -->
+      <section>
+        <h2>Sobre mí</h2>
+        <p>Tengo 20 años (n. 23 de marzo de 2005). Me motiva aportar soluciones tecnológicas útiles y comprensibles para las personas. Busco oportunidades para seguir creciendo en análisis de datos y desarrollo de software.</p>
+      </section>
+
+      <!-- Verificación / enlaces -->
+      <section>
+        <h2>Verificaciones y enlaces</h2>
+        <p>Certificación de Power BI (micro‑certificación): <a href="https://learndigital.withgoogle.com/link/1nur091p2ww" target="_blank" rel="noopener">Verificar</a></p>
+      </section>
+    </div>
+
+    <div class="footer">
+      <button class="btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+      <a class="btn ghost" href="mailto:custodiosaac074@gmail.com?subject=Contacto%20por%20CV%20Web">Contactar por correo</a>
+    </div>
+
+    <!-- Galería de cursos -->
+    <section>
+        <h2>Galería de Cursos</h2>
+    <div class="gallery">
+        <img src="CV  - google activate_page-0001.jpg" alt="Curso 1">
+        <img src="CV  - power1_page-0001.jpg" alt="Curso 2">
+        <img src="CV  - power2_page-0001.jpg" alt="Curso 3">
+        <img src="IBM Security Fundamentals.png" alt="Curso 4">
+        <img src="OWASP.png" alt="Curso 5">
+        <img src="Next.JS.png" alt="Curso 6">
+        <img src="Fundamentos de Arquitectura de Software.png" alt="Curso 7">
+        <img src="Arquitecturas limpias para desarrollo de software.png" alt="Curso 8">
+        <img src="Arquitectura de software.png" alt="Curso 9">
+        <img src="Arquitectura Backend.png" alt="Curso 10">
+
+    <!-- Agrega más imágenes según necesites -->
+    </div>
+    </section>
+
+
+  </main>
+</body>
+</html>
